@@ -8,7 +8,7 @@ import HomeScreen from '../Home';
 
 const Stack = createNativeStackNavigator();
 
-export function Auth() {
+export default function AuthScreen() {
   const { theme } = useTheme();
   const styles = createGlobalStyles(theme);
   const { loading, user } = useAuthVM();
@@ -29,7 +29,7 @@ export function Auth() {
         {user === null ? (
           <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
         ) : (
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
         )}
       </Stack.Navigator>
   );
