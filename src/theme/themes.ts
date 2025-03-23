@@ -62,3 +62,14 @@ export const createGlobalStyles = (theme = lightTheme) => StyleSheet.create({
         fontWeight: 'bold',
     },
 });
+
+export const themeSizes = {
+    textSmall: 12,
+    textMedium: 14,
+    titleSmall: 16,
+    titleMedium: 18,
+    titleLarge: 20,
+    titleDisplay: 24,
+    buttonHeight: 56,
+    buttonBorderRadius: 32,
+}
