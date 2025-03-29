@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { getAuth, FirebaseAuthTypes, signInAnonymously } from '@react-native-firebase/auth';
 
 export const useAuthVM = () => {
-    const [loading, setLoading] = useState<boolean>(true);
-    const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
+    const currentUser = getAuth().currentUser;
+    const [loading, setLoading] = useState<boolean>(!currentUser ? true : false);
+    const [user, setUser] = useState<FirebaseAuthTypes.User | null>(currentUser);
 
     getAuth().onAuthStateChanged((fbUser) => {
         setLoading(false);

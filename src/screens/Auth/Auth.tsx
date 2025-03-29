@@ -4,7 +4,7 @@ import { createGlobalStyles, darkTheme } from '../../theme/themes';
 import { useAuthVM } from './authVM';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './Login';
-import HomeScreen from '../Home';
+import BottomNav from '../../components/navigation/BottomNav';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +29,7 @@ export default function AuthScreen() {
         {user === null ? (
           <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
         ) : (
-          <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
+          <Stack.Screen name="Navigation" component={BottomNav} options={{headerShown: false}} />
         )}
       </Stack.Navigator>
   );
