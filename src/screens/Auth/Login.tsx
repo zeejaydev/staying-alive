@@ -59,5 +59,5 @@ const viewStyles = StyleSheet.create({
     padding: 40,
     backgroundColor:'white',
     gap: 20,
-  }
+  },
 });

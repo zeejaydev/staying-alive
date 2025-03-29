@@ -14,5 +14,5 @@ export default function ProfileScreen () {
         <Text style={styles.text}>Profile</Text>
       </SafeAreaView>
     </View>
-  )
+  );
 }

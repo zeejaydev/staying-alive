@@ -72,4 +72,4 @@ export const themeSizes = {
     titleDisplay: 24,
     buttonHeight: 56,
     buttonBorderRadius: 32,
-}
+};
