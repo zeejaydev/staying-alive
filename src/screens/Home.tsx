@@ -1,4 +1,4 @@
-import { Button, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
 import { createGlobalStyles, darkTheme, themeSizes } from '../theme/themes';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -20,14 +20,12 @@ export default function HomeScreen() {
     }
   };
 
-  const onPageSelected = (e) => {
+  const onPageSelected = (e: any) => {
     const position = e.nativeEvent.position;
     setCurrentDate((prevDate) => {
       const newDate = moment(prevDate).add(position - 1, 'days');
       return newDate;
     });
-
-    // Reset back to center (current day)
     setTimeout(() => goToPage(1), 0);
   };
 
