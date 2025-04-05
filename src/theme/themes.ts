@@ -6,6 +6,18 @@ export type LightTheme = {
         background: string;
         primary: string;
         secondary: string;
+        todaysPointsWidget: string;
+        weeklyPointsWidget: string;
+        stepsWidget: string;
+        waterWidget: string;
+        sleepWidget: string;
+        trainingTimeWidget: string;
+        activeCaloriesWidget: string;
+        targetCaloriesWidget: string;
+        proteinWidget: string;
+        carbsWidget: string;
+        fatWidget: string;
+        reportWidgetTitle: string;
     };
 }
 
@@ -15,6 +27,18 @@ export type DarkTheme = {
         background: string;
         primary: string;
         secondary: string;
+        todaysPointsWidget: string;
+        weeklyPointsWidget: string;
+        stepsWidget: string;
+        waterWidget: string;
+        sleepWidget: string;
+        trainingTimeWidget: string;
+        activeCaloriesWidget: string;
+        targetCaloriesWidget: string;
+        proteinWidget: string;
+        carbsWidget: string;
+        fatWidget: string;
+        reportWidgetTitle: string;
     };
 }
 
@@ -24,6 +48,18 @@ export const lightTheme: LightTheme = {
         background: '#ffffff',
         primary: '#007bff',
         secondary: '#6c757d',
+        todaysPointsWidget: '#D5FBFF',
+        weeklyPointsWidget: '#E9FFD3',
+        stepsWidget: '#FFE8C6',
+        waterWidget: '#D8E6EC',
+        sleepWidget: '#EFE2FF',
+        trainingTimeWidget: '#EAECFF',
+        activeCaloriesWidget: '#FFF8C6',
+        targetCaloriesWidget: '#FFD7D8',
+        proteinWidget: '#D5FFAB',
+        carbsWidget: '#C0F5FF',
+        fatWidget: '#F4DEF1',
+        reportWidgetTitle: 'rgba(25, 33, 38, 0.5)',
     },
 };
 
@@ -33,6 +69,18 @@ export const darkTheme: DarkTheme = {
         primary: '#1E88E5',
         background: '#121212',
         secondary: '#B0BEC5',
+        todaysPointsWidget: '',
+        weeklyPointsWidget: '',
+        stepsWidget: '',
+        waterWidget: '',
+        sleepWidget: '',
+        trainingTimeWidget: '',
+        activeCaloriesWidget: '',
+        targetCaloriesWidget: '',
+        proteinWidget: '',
+        carbsWidget: '',
+        fatWidget: '',
+        reportWidgetTitle: '',
     },
 };
 
@@ -60,6 +108,11 @@ export const createGlobalStyles = (theme = lightTheme) => StyleSheet.create({
     buttonText: {
         color: '#ffffff',
         fontWeight: 'bold',
+    },
+    widgetRow: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginBottom: 10,
     },
 });
 

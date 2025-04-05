@@ -3,6 +3,7 @@ import { useTheme } from '../theme/ThemeContext';
 import { createGlobalStyles, darkTheme } from '../theme/themes';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthVM } from './Auth/authVM';
+import ReportWidget from '../components/ReportWidget';
 
 export default function HomeScreen() {
   const { theme } = useTheme();
@@ -13,6 +14,14 @@ export default function HomeScreen() {
       <StatusBar barStyle={theme === darkTheme ? 'light-content' : 'dark-content'} />
       <SafeAreaView>
         <Text style={styles.text}>Home</Text>
+        <View style={styles.widgetRow}>
+          <ReportWidget title="Todays Points" backgroundColor={theme.colors.todaysPointsWidget}>
+            <Text>15</Text>
+          </ReportWidget>
+          <ReportWidget title="Weekly Points" backgroundColor={theme.colors.weeklyPointsWidget}>
+            <Text>15</Text>
+          </ReportWidget>
+        </View>
         <Button title="Sign Out" onPress={handleLogOut} />
       </SafeAreaView>
     </View>
