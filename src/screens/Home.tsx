@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import PagerView from 'react-native-pager-view';
 import { useRef, useState } from 'react';
 import moment from 'moment';
+import ReportWidget from '../components/ReportWidget';
 
 export default function HomeScreen() {
   const { theme } = useTheme();
@@ -35,12 +36,12 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={theme === darkTheme ? 'light-content' : 'dark-content'} />
       <View style={viewStyles.daysNav}>
-        <Button title="← Previous" onPress={() => goToPage(0)} />
+        <Button title="Previous" onPress={() => goToPage(0)} />
         <Button title="Today" onPress={() => {
           setCurrentDate(moment());
           goToPage(1);
         }} />
-        <Button title="Next →" onPress={() => goToPage(2)} />
+        <Button title="Next" onPress={() => goToPage(2)} />
       </View>
       <PagerView style={viewStyles.pager} initialPage={0} scrollEnabled={false} ref={pagerRef} onPageSelected={onPageSelected}>
         {daysArray.map((offset) => {
@@ -48,18 +49,26 @@ export default function HomeScreen() {
           return (
             <View key={offset} style={viewStyles.page}>
               <Text>{day.format('dddd, MMM D')}</Text>
-            </View>
+              <View style={styles.widgetRow}>
+                <ReportWidget title="Todays Points" backgroundColor={theme.colors.todaysPointsWidget}>
+                  <Text>15</Text>
+                </ReportWidget>
+                <ReportWidget title="Weekly Points" backgroundColor={theme.colors.weeklyPointsWidget}>
+                  <Text>15</Text>
+                </ReportWidget>
+              </View>
+          </View>
           );
         })}
       </PagerView>
-    </SafeAreaView>
-  );
+    </SafeAreaView>);
 }
 
 const viewStyles = StyleSheet.create({
   pager: {
     flex: 1,
     paddingBottom: 40,
+    height: '100%',
   },
   page : {
     backgroundColor: "red",
