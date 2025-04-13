@@ -6,6 +6,7 @@ import PagerView from 'react-native-pager-view';
 import { useRef, useState } from 'react';
 import moment from 'moment';
 import ReportWidget from '../components/ReportWidget';
+import StepsIcon from '../assets/icons/steps';
 
 export default function HomeScreen() {
   const { theme } = useTheme();
@@ -48,12 +49,31 @@ export default function HomeScreen() {
             <View key={offset} style={viewStyles.page}>
               <Text>{day.format('dddd, MMM D')}</Text>
               <View style={styles.widgetRow}>
-                <ReportWidget title="Todays Points" backgroundColor={theme.colors.todaysPointsWidget}>
+                <ReportWidget
+                  title="Steps"
+                  backgroundColor="#FFF8E1"
+                  type="bar"
+                  currentValue={999}
+                  targetValue={2000}
+                  icon={<StepsIcon width={24} height={24} />}
+                />
+                <ReportWidget
+                  title="Weekly Points"
+                  backgroundColor={theme.colors.weeklyPointsWidget}
+                  type="default"
+                >
                   <Text>15</Text>
                 </ReportWidget>
-                <ReportWidget title="Weekly Points" backgroundColor={theme.colors.weeklyPointsWidget}>
-                  <Text>15</Text>
-                </ReportWidget>
+              </View>
+              <View style={styles.widgetRow}>
+                <ReportWidget
+                  title="Training time"
+                  backgroundColor="#F5F0FF"
+                  type="pie"
+                  currentValue={6}
+                  targetValue={30}
+                  unit="min"
+                />
               </View>
           </View>
           );
@@ -69,11 +89,11 @@ const viewStyles = StyleSheet.create({
     height: '100%',
   },
   page : {
-    backgroundColor: "red",
+    backgroundColor: 'red',
   },
   daysNav: {
-    flexDirection: "row",
-    justifyContent: 'space-between'
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   button: {
     backgroundColor: '#212121',
